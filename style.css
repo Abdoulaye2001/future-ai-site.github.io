@@ -1,0 +1,314 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  color: #f2f2f2;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+:root {
+    --main-color: #3867d6;
+}
+html {
+  font-size: 62.5%;
+  overflow-x: hidden;
+  scroll-padding-top: 7rem;
+  scroll-behavior: smooth;
+}
+
+html::-webkit-scrollbar {
+  width: 1rem;
+}
+
+html::-webkit-scrollbar-track {
+  background: #444;
+}
+
+html::-webkit-scrollbar-thumb {
+  background: var(--main-color);
+  border-radius: 5rem;
+}
+
+.actu {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: -webkit-linear-gradient(
+    136deg,
+    rgb(224, 195, 252) 0%,
+    rgb(142, 197, 252) 100%
+  );
+}
+nav {
+  background: #222222;
+  padding: 10px 40px 10px 70px;
+  border: 1px solid #000;
+  border-left: none;
+  border-right: none;
+}
+nav ul {
+  display: flex;
+  list-style: none;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+nav ul li.logo {
+  flex: 1;
+  font-size: 30px;
+  font-weight: 700;
+}
+nav ul div.items {
+  padding: 0 25px;
+  display: inline-flex;
+}
+nav ul div.items a {
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0 12px;
+}
+nav ul div.items a:hover {
+  color: cyan;
+}
+nav ul .search-icon {
+  height: 40px;
+  width: 240px;
+  display: flex;
+  background: #f2f2f2;
+  border-radius: 5px;
+}
+nav ul .search-icon input {
+  height: 100%;
+  width: 200px;
+  border: none;
+  outline: none;
+  padding: 0 10px;
+  color: #000;
+  font-size: 16px;
+  border-radius: 5px 0 0 5px;
+}
+nav ul .search-icon .icon {
+  height: 100%;
+  width: 40px;
+  line-height: 40px;
+  text-align: center;
+  border: 1px solid #cccccc;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+nav ul .search-icon .icon:hover {
+  background: #e6e6e6;
+}
+nav ul .search-icon .icon span {
+  color: #222222;
+  font-size: 18px;
+}
+nav ul li.btn {
+  font-size: 29px;
+  flex: 1;
+  padding: 0 40px;
+  display: none;
+}
+nav ul li.btn span {
+  height: 42px;
+  width: 42px;
+  text-align: center;
+  line-height: 42px;
+  border: 1px solid #151515;
+  border-radius: 5px;
+  cursor: pointer;
+}
+nav ul li.btn span.show:before {
+  content: "\f00d";
+}
+@media screen and (max-width: 1052px) {
+  nav {
+    padding: 10px 40px 10px 0px;
+  }
+  nav ul li.logo {
+    display: none;
+  }
+  nav ul div.items {
+    flex: 4;
+  }
+}
+@media screen and (max-width: 800px) {
+  nav ul li.btn {
+    display: block;
+  }
+  nav {
+    z-index: 1;
+    padding: 9px 40px 9px 0;
+  }
+  nav ul div.items {
+    z-index: -1;
+    position: fixed;
+    top: -220px;
+    right: 0;
+    width: 100%;
+    background: #222222;
+    display: inline-block;
+    transition: top 0.4s;
+  }
+  nav ul div.items.show {
+    top: 60px;
+  }
+  nav ul div.items li {
+    text-align: center;
+    line-height: 30px;
+    margin: 30px 0;
+  }
+  nav ul div.items li a {
+    font-size: 19px;
+  }
+}
+@media screen and (max-width: 405px) {
+  nav ul {
+    flex-wrap: nowrap;
+  }
+  nav ul li.search {
+    width: 50vmin;
+  }
+  nav ul li input {
+    width: 40vmin;
+  }
+  nav ul li .search-icon {
+    width: 10vmin;
+  }
+}
+
+.wrapper {
+  position: relative;
+  width: 700px;
+  height: 400px;
+}
+.wrapper .img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+.wrapper .img img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  clip-path: circle(0% at 0% 100%);
+  transition: all 0.7s;
+}
+#one:checked ~ .img-1 img {
+  clip-path: circle(150% at 0% 100%);
+}
+#two:checked ~ .img-1 img,
+#two:checked ~ .img-2 img {
+  clip-path: circle(150% at 0% 100%);
+}
+#three:checked ~ .img-1 img,
+#three:checked ~ .img-2 img,
+#three:checked ~ .img-3 img {
+  clip-path: circle(150% at 0% 100%);
+}
+#four:checked ~ .img-1 img,
+#four:checked ~ .img-2 img,
+#four:checked ~ .img-3 img,
+#four:checked ~ .img-4 img {
+  clip-path: circle(150% at 0% 100%);
+}
+#five:checked ~ .img-1 img,
+#five:checked ~ .img-2 img,
+#five:checked ~ .img-3 img,
+#five:checked ~ .img-4 img,
+#five:checked ~ .img-5 img {
+  clip-path: circle(150% at 0% 100%);
+}
+.wrapper .sliders {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 99;
+  display: flex;
+}
+.wrapper .sliders label {
+  border: 2px solid rgb(142, 197, 252);
+  width: 13px;
+  height: 13px;
+  margin: 0 3px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+#one:checked ~ .sliders label.one,
+#two:checked ~ .sliders label.two,
+#three:checked ~ .sliders label.three,
+#four:checked ~ .sliders label.four,
+#five:checked ~ .sliders label.five {
+  width: 35px;
+  border-radius: 14px;
+  background: rgb(142, 197, 252);
+}
+.sliders label:hover {
+  background: rgb(142, 197, 252);
+}
+input[type="radio"] {
+  display: none;
+}
+
+.theme-toggler {
+  position: fixed;
+  top: 10rem;
+  right: -20rem;
+  background: #333;
+  z-index: 1000;
+  width: 20rem;
+  text-align: center;
+}
+
+.theme-toggler.active {
+  right: 0;
+}
+
+.theme-toggler h3 {
+  color: #fff;
+  padding: 1rem 0;
+  font-size: 2rem;
+}
+
+.theme-toggler .buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.theme-toggler .buttons .theme-btn {
+  height: 5rem;
+  width: 5rem;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.theme-toggler .toggle-btn {
+  position: absolute;
+  top: 0;
+  left: -5.9rem;
+  padding: 1.3rem 1.5rem;
+  background: #333;
+  cursor: pointer;
+}
+
+.theme-toggler .toggle-btn i {
+  color: #fff;
+  font-size: 2rem;
+  animation: spin 2s linear infinite;
+  display: block;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(150deg);
+  }
+}
